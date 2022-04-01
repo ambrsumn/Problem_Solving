@@ -12,65 +12,43 @@
 class Solution {
 public:
     
-    vector<vector<int>> numbers;
+    vector<vector<int>> ans;
     
-    
-    int summer(vector<int> vec)
+    void check(TreeNode* root, vector<int> vec, int sum, int target)
     {
-        int sum = 0;
         
-        for(int i=0; i<vec.size(); i++)
-        {
-            sum += vec[i];
-        }
-        
-        return sum;
-    }
-    
-    
-    void nums(TreeNode* root, vector<int> vec)
-    {
-        if(!root->left && !root->right)
+        if(!root->left && !root->right && (sum + root->val) == target)
         {
             vec.push_back(root->val);
-            
-            numbers.push_back(vec);
+            ans.push_back(vec);
             
             return;
         }
         
+        if(!root->left && !root->right && (sum + root->val) != target)
+            return;
+        
         
         vec.push_back(root->val);
-        
+        sum += root->val;
         
         if(root->left)
-            nums(root->left, vec);
+            check(root->left, vec, sum, target);
         
         if(root->right)
-           nums(root->right, vec);
+            check(root->right, vec, sum, target);
         
     }
-    
-    
-    vector<vector<int>> pathSum(TreeNode* root, int target) 
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) 
     {
         if(root == NULL)
-            return numbers;
+            return ans;
         
-        vector<int> ans;
+        vector<int> curr;
         
-        nums(root, ans);
+        check(root, curr, 0, targetSum);
         
-        vector<vector<int>> returner;
+        return ans;
         
-        for(int i=0; i<numbers.size(); i++)
-        {
-            int sum = summer(numbers[i]);
-            
-            if(sum == target)
-                returner.push_back(numbers[i]);
-        }
-        
-        return returner;
     }
 };

@@ -45,10 +45,7 @@ public:
                         count2++;
                     }
                     
-                    if(l!=r)
-                    {
                         ans = (ans%mod + (count1%mod* count2%mod)%mod)%mod;	 
-                    }
                     
                     l++;
                     r--;

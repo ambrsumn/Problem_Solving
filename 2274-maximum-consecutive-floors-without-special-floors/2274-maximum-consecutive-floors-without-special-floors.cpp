@@ -5,20 +5,20 @@ public:
         sort(special.begin(), special.end());
         
         vector<int> diff;
+        int maxi = (special[0]-bottom);
         
-        diff.push_back(special[0]-bottom);
         
         for(int i=1; i<special.size(); i++)
         {
-            diff.push_back(special[i]-special[i-1]-1);
+            int newer = (special[i]-special[i-1]-1);
+            
+            maxi = max(maxi,newer);
+            
         }
         
-        diff.push_back(top-special.back());
+        maxi = max(maxi, (top-special.back()));
         
-        sort(diff.begin(), diff.end());
-        
-        
-        return diff.back();
+        return maxi;
         
     }
 };

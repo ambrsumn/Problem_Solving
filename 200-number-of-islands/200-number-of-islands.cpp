@@ -15,17 +15,17 @@ public:
         
         vec[i][j] = '0';
         
-        if(isValid(vec, i+1, j, n, m))
-            dfs(vec, i+1, j, n, m);
-        // cout<<"YEs"<<endl;
         if(isValid(vec, i-1, j, n, m))
             dfs(vec, i-1, j, n, m);
-        
+        // cout<<"YEs"<<endl;
         if(isValid(vec, i, j+1, n, m))
             dfs(vec, i, j+1, n, m);
         
         if(isValid(vec, i, j-1, n, m))
             dfs(vec, i, j-1, n, m);
+        
+        if(isValid(vec, i+1, j, n, m))
+            dfs(vec, i+1, j, n, m);
         
         // return;
     }

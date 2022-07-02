@@ -34,16 +34,7 @@ public:
         {
             grid[pre[i][0]].push_back(pre[i][1]);
         }
-        
-        // for(int i=0; i<n; i++)
-        // {
-        //     cout<<i<<" : ";
-        //     for(auto it : grid[i])
-        //     {
-        //         cout<<it<<" ";
-        //     }
-        //     cout<<endl;
-        // }
+
         
         for(int i=0; i<n; i++)
         {

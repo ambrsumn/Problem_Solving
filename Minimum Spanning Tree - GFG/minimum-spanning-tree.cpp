@@ -12,11 +12,8 @@ class Solution
     int spanningTree(int n, vector<vector<int>> adj[])
     {
         int res = 0;
-        
         vector<bool> mset(n,0);
         vector<int> key(n,0);
-        
-        priority_queue<pair<int, int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
         
         for(int i=0; i<n; i++)
         {
@@ -25,14 +22,19 @@ class Solution
         }
         
         key[0]=0;
-        pq.push({0,0});
         
-        while(!pq.empty())
+        for(int i=0; i<n; i++)
         {
             int mini = INT_MAX, u;
             
-            u = pq.top().second;
-            pq.pop();
+            for(int i=0; i<n; i++)
+            {
+                if(!mset[i] && key[i] < mini)
+                {
+                    mini = key[i];
+                    u = i;
+                }
+            }
             // cout<<u<<" ";
             mset[u] = true;
             // res += key[u];
@@ -42,14 +44,12 @@ class Solution
                 if(!mset[it[0]] && it[1] < key[it[0]])
                 {
                     key[it[0]] = it[1];
-                    pq.push({key[it[0]], it[0]});
                 }
             }
         }
         
         for(auto it : key)
         res += it;
-        
         
         return res;
     }

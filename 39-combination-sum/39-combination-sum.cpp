@@ -21,8 +21,8 @@ public:
             sum += vec[i];
             bt(i,vec,tar,sum);
             sum -= vec[i];
-            i++;
             temp.pop_back();
+            i++;
         }
         
     }

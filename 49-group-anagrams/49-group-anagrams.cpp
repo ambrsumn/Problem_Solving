@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) 
     {
-        unordered_map<string,int> mpp;
+        map<string,int> mpp;
         
         int count=0;
         

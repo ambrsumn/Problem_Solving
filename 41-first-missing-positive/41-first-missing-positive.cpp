@@ -2,27 +2,27 @@ class Solution {
 public:
     int firstMissingPositive(vector<int>& arr) 
     {
-        set<int> st;
+       unordered_map<int,int>mpp;
         
-        for(int i=0; i<arr.size(); i++)
-        if(arr[i]>0)
-        st.insert(arr[i]);
+       for(int i=0;i<arr.size();i++)
+       {
+           mpp[arr[i]]++;
+       }
+       
+       int p=1, n = arr.size()+1;
+       
+       while(n--)
+       {
+           if(mpp[p]>0)
+           {
+               p++;
+           }
+           else
+           {
+               return p;
+           }
+       }
         
-        int ans=-1, count=1;
-        
-        for(auto it : st)
-        {
-                if(count != it)
-                {
-                    ans=count;
-                    break;
-                }
-                count++;
-        }
-        
-        if(ans == -1)
-        ans=count;
-        
-        return ans;
+        return p;
     }
 };

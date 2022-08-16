@@ -15,27 +15,26 @@ public:
         for(auto it : mpp)
             pq.push({it.second, it.first});
         
-        set<char> st;
+        map<char, int> mppp;
         
         while(!pq.empty())
         {
-            st.clear();
+           mppp.clear();
             
             pair<int,char> pr = pq.top();
             pq.pop();
-            st.insert(pr.second);
-            // cout<<pr.second<<" "<<pr.first<<endl;
+            mppp[pr.second]++;
             
             while(!pq.empty() && pq.top().first == pr.first)
             {
-                st.insert(pq.top().second);
+                mppp[pq.top().second]++;
                 pq.pop();    
             }
             
-            for(auto it : st)
+            for(auto it : mppp)
             {
                 for(int i=0; i<pr.first; i++)
-                    ans.push_back(it);
+                    ans.push_back(it.first);
             }
         }
         

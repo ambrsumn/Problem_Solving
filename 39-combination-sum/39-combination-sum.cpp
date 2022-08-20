@@ -6,6 +6,10 @@ public:
     
     void bt(int i, vector<int>& vec, int &tar, int sum)
     {   
+        // cout<<sum<<endl;
+        
+        if(i>=vec.size())return;
+        
         if(sum == tar)
         {
             ans.push_back(temp);
@@ -15,15 +19,14 @@ public:
         if(sum>tar)
             return;
         
-        while(i<vec.size())
+        if(sum<tar)
         {
             temp.push_back(vec[i]);
-            sum += vec[i];
-            bt(i,vec,tar,sum);
-            sum -= vec[i];
+            bt(i,vec,tar,sum+vec[i]);
             temp.pop_back();
-            i++;
         }
+        
+        bt(i+1,vec,tar,sum);
         
     }
     

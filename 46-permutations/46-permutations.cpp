@@ -1,13 +1,15 @@
 class Solution {
 public:
     vector<vector<int>> ans;
-    set<vector<int>> st;
+    // set<vector<int>> st;
     
     void bt(int i, vector<int> &nums)
     {
-        st.insert(nums);
-        
-        if(i>=nums.size())return;
+        if(i>=nums.size())
+        {
+            ans.push_back(nums);
+            return;
+        }
         
         for(int j=i; j<nums.size(); j++)
         {
@@ -22,7 +24,7 @@ public:
     {
         bt(0,nums);
         
-        for(auto it : st)ans.push_back(it);
+        // for(auto it : st)ans.push_back(it);
         
         return ans;
     }

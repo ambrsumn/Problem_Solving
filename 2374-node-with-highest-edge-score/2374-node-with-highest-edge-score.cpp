@@ -2,37 +2,28 @@ class Solution {
 public:
     int edgeScore(vector<int>& edges) 
     {
-        unordered_map<long long, vector<long long>> mpp;
+        unordered_map<long long, long long> mpp;
         
         for(long long i=0; i<edges.size(); i++)
         {
-            mpp[edges[i]].push_back(i);
+            mpp[edges[i]] += i;
         }
-        priority_queue<pair<long long,long long>> pq;
+        
+        int ans=-1;
+        int curr = INT_MIN;
         
         for(auto it : mpp)
         {
-            long long sum=0;
-            for(auto itt : it.second)
-            {
-                sum += itt;
+            if(it.second>curr)
+            {        
+                ans = it.first;
+                curr = it.second;
             }
             
-            pq.push({sum,it.first});
+            else if(it.second==curr && it.first<ans)
+                ans=it.first;
         }
         
-        set<long long> st;
-        st.insert(pq.top().second);
-        long long d = pq.top().first;
-        pq.pop();
-        
-        while(!pq.empty() && pq.top().first==d)
-        {
-            st.insert(pq.top().second);
-            pq.pop();
-        }
-        
-        
-        return *st.begin();
+        return ans;
     }
 };

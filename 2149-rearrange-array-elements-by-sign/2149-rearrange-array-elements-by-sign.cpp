@@ -2,34 +2,34 @@ class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) 
     {
+        int n = nums.size();
         vector<int> ans;
-        priority_queue<pair<int,int>> pos, neg;
+        int pos=0, neg=0;
         
-        for(int i=0; i<nums.size(); i++)
-        {
-            if(nums[i]<0)
-                neg.push({(i*-1),nums[i]});
-            else
-                pos.push({(i*-1),nums[i]});
-        }
+        while(nums[pos]<0)
+            pos++;
+        while(nums[neg]>0)
+            neg++;
         
         int count=0;
-        while(!pos.empty() && !neg.empty())
+        while(pos<n && neg<n)
         {
             if(count%2 == 0)
             {
-                ans.push_back(pos.top().second);
-                pos.pop();
+                ans.push_back(nums[pos]); pos++;
+                while(pos<n &&nums[pos]<0)
+                    pos++;
             }
+            
             else
             {
-                ans.push_back(neg.top().second);
-                neg.pop();
+                ans.push_back(nums[neg]); neg++;
+                while(neg<n &&nums[neg]>0)
+                    neg++;
             }
             count++;
         }
-        ans.push_back(neg.top().second);
-        neg.pop();
+        ans.push_back(nums[neg]);
         
         return ans;
     }

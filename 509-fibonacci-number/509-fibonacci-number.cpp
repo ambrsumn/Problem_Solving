@@ -12,13 +12,13 @@ public:
     
     int fib(int n) 
     {
-        if(n==0)return 0;
+        // if(n==0)return 0;
         
         vector<int> dp(n+1, -1);
         
         
-        
-        // TABULATION METHOD :-
+        /*
+        TABULATION METHOD :-
         
         dp[0]=0;
         dp[1]=1;
@@ -30,7 +30,7 @@ public:
         
         return dp[n];
         
-        
+        */
         
         return recur(n, dp);
     }

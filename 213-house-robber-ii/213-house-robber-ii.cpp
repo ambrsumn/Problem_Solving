@@ -1,19 +1,19 @@
 class Solution {
 public:
-    int n=0, flag=0;
+    int n=0;
     
-    int rob(int i, vector<int> &nums, vector<int> &dp)
-    {
-        if(i<0)return 0;
-        if(i==0)return nums[0];
+//     int rob(int i, vector<int> &nums, vector<int> &dp)
+//     {
+//         if(i<0)return 0;
+//         if(i==0)return nums[0];
         
-        if(dp[i] != -1)return dp[i];
+//         if(dp[i] != -1)return dp[i];
         
-        int left = nums[i] + rob(i-2, nums, dp);
-        int right = rob(i-1, nums, dp);
+//         int left = nums[i] + rob(i-2, nums, dp);
+//         int right = rob(i-1, nums, dp);
         
-        return dp[i] = max(left,right);
-    }
+//         return dp[i] = max(left,right);
+//     }
     
     int rob(vector<int>& nums) 
     {

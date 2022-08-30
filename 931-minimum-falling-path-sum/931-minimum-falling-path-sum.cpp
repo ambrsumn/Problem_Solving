@@ -9,7 +9,7 @@ public:
     ll recur(int i, int j, int n, vector<vector<int>> &t, vector<vector<ll>> &dp)
     {
         // cout<<down<<" "<<rd<<" "<<ld<<endl;
-        if(i>=n || j>=n || j<0)return INT_MAX;
+        if(j>=n || j<0)return INT_MAX;
         if(i==n-1)return t[i][j];
         
         if(dp[i][j] != -1)return dp[i][j];

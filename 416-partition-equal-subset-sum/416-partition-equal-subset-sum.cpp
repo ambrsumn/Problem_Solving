@@ -17,7 +17,7 @@ public:
         for(auto it : nums)
             sum += it;
         
-        sort(nums.begin(), nums.end());
+        // sort(nums.begin(), nums.end());
         int n = nums.size();
         
         vector<vector<int>> dp(n, vector<int>(sum+1, -1));

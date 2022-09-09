@@ -20,7 +20,7 @@ public:
     
     int numSquares(int n) 
     {
-        vector<vector<int>> dp(101, vector<int>(n+1, -1));
+        vector<vector<int>> dp(101, vector<int>(10001, -1));
         return recur(1, n, dp);
     }
 };

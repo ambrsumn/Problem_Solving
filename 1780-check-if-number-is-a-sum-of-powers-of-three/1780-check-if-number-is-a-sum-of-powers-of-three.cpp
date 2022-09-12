@@ -6,7 +6,7 @@ public:
         if(n<=1)return true;
         if(n<3)return false;
         
-        return recur(n/3) and recur(n%3);
+        return recur(n/3) & recur(n%3);
     }
     
     bool checkPowersOfThree(int n) 

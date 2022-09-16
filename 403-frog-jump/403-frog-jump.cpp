@@ -28,7 +28,7 @@ public:
         for(int i=0; i<s.size(); i++)
             mpp[s[i]] = i;
         
-        vector<vector<int>> dp(2001, vector<int>(2005, -1));
+        vector<vector<int>> dp(2001, vector<int>(2001, -1));
         
         // return false;
         return recur(1, 1, s, dp);

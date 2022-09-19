@@ -20,7 +20,9 @@ public:
         
         c = costs[2] + recur(days, costs, indx, dp);
         
-        return dp[i] = min(a, min(b, c));
+        // cout<<a<<" "<<b<<" "<<c<<endl;
+        
+        return dp[i] = min({a,b,c});
     }
     
     int mincostTickets(vector<int>& days, vector<int>& costs) 

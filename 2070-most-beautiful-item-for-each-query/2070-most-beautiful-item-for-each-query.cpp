@@ -13,11 +13,10 @@ public:
     
     vector<int> maximumBeauty(vector<vector<int>>& it, vector<int>& q) 
     {
-        vector<int> ans;
+        vector<int> ans, temp = q;
         priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> gq;
         unordered_map<int,int> mpp;
         
-        vector<int> temp = q;
         sort(q.begin(), q.end());
         
         for(int i=0; i<it.size(); i++)
@@ -25,20 +24,14 @@ public:
         
         int maxi = 0;
         
-        // print2(gq);
-        
         for(auto it : q)
         {
             int curr=0;
-            // cout<<it<<" : ";
-            
             while(!gq.empty() && it >= gq.top().first)
             {
                 curr = max(curr, gq.top().second);
                 gq.pop();
             }
-            
-            // cout<<curr<<" "<<maxi<<" "<<gq.size()<<endl;
             maxi = max(maxi, curr);
             mpp[it]=maxi;
         }

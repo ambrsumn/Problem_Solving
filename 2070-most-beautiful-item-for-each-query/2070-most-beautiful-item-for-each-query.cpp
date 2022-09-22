@@ -1,17 +1,7 @@
 class Solution {
 public:
     
-   void print2(priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> gq)
-    {
-        while(!gq.empty())
-        {
-            cout<<gq.top().first<<" "<<gq.top().second<<endl;
-            gq.pop();
-        }
-        return;
-    }
-    
-    vector<int> maximumBeauty(vector<vector<int>>& it, vector<int>& q) 
+  vector<int> maximumBeauty(vector<vector<int>>& it, vector<int>& q) 
     {
         vector<int> ans, temp = q;
         priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> gq;

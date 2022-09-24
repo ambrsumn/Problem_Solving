@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-    map<pair<TreeNode*,int>,int> mpp;
+    // map<pair<TreeNode*,int>,int> mpp;
     bool recur(TreeNode* root, int t)
     {
         if(!root)return false;
@@ -23,9 +23,9 @@ public:
             return false;
         }
         
-        if(mpp.count({root,t}) != 0)return mpp[{root,t}];
+        // if(mpp.count({root,t}) != 0)return mpp[{root,t}];
         
-        return mpp[{root,t}] = recur(root->left, t-root->val) | recur(root->right, t-root->val);
+        return recur(root->left, t-root->val) | recur(root->right, t-root->val);
     }
     
     bool hasPathSum(TreeNode* root, int t) 

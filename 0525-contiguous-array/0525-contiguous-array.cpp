@@ -7,7 +7,7 @@ public:
         for(int i=nums.size()-1; i>=0; i--)
             if(nums[i] == 0)nums[i]=-1;
         
-        unordered_map<int,int> mpp;
+        map<int,int> mpp;
         
         int sum=0;
         

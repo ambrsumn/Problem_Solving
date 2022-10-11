@@ -4,7 +4,7 @@ public:
     {
         int ans = 0;
         
-        map<int,int> mpp;
+        unordered_map<int,int> mpp;
         
         int sum=0;
         

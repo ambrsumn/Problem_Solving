@@ -13,8 +13,8 @@ public:
         int ans = 0;
         
         if(s1[i] == s2[j])
-            ans = recur(i-1, j-1, s1, s2) + recur(i-1, j, s1, s2);
-        else
+            return dp[i][j] = recur(i-1, j-1, s1, s2) + recur(i-1, j, s1, s2);
+        
         ans = recur(i-1, j, s1, s2);
         
         return dp[i][j] = ans;

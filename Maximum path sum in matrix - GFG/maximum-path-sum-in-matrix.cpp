@@ -35,10 +35,7 @@ public:
         
         int ans = INT_MIN;
         
-        for(int i=0; i<m; i++)
-        {
-            ans = max(ans, recur(0, i, ma));
-        }
+        for(int i=0; i<m; i++)ans = max(ans, recur(0, i, ma));
         
         return ans;
     }

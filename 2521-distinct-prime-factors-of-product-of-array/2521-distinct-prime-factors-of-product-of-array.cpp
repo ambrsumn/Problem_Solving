@@ -27,12 +27,15 @@ void recur(int n)
         }
         
         i++;
+        
+        if(vec[i] > n)break;
     }
 }
     
     int distinctPrimeFactors(vector<int>& nums) 
     {
         for(int i=2; i<=1000; i++)if(isPrime(i))vec.push_back(i);
+        // for(auto it : vec)cout<<it<<" ";
         
         for(auto it : nums)recur(it);
         

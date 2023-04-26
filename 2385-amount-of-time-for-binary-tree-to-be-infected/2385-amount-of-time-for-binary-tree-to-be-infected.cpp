@@ -39,8 +39,8 @@ public:
         queue<TreeNode*> pending;
         pending.push(home);
         
-        map<TreeNode*, int> visited;
-        visited[home]=101;
+        // map<TreeNode*, int> visited;
+        home->val = -1;
         
         
 //         for(auto it : mpp)
@@ -66,12 +66,10 @@ public:
                 
                 for(auto it : mpp[temp])
                 {
-                    if(visited[it] != 101)
+                    if(it->val != -1)
                     {
-                        // cout<<it->val<<" ";
-                        
                         pending.push(it);
-                        visited[it] = 101;
+                        it->val = -1;
                     }
                 }
             }

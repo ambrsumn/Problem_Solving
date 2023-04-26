@@ -1,14 +1,4 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+
 class Solution {
 public:
     
@@ -38,21 +28,7 @@ public:
         
         queue<TreeNode*> pending;
         pending.push(home);
-        
-        // map<TreeNode*, int> visited;
         home->val = -1;
-        
-        
-//         for(auto it : mpp)
-//         {
-//             cout<<it.first->val<<" : ";
-            
-//             for(auto itt : it.second)
-//             {
-//                 cout<<itt->val<<" ";
-//             }
-//             cout<<endl;
-//         }
         
         while(!pending.empty())
         {
@@ -73,7 +49,6 @@ public:
                     }
                 }
             }
-            // cout<<endl;
         }
         
         return ans;

@@ -22,11 +22,9 @@ public:
         
         while(i<f.size())
         {
-            // cout<<"char: "<<f[i]<<endl;
             
             if(f[i] == ')')
             {
-                // cout<<"tmp "<<temp<<endl;
                 if(!temp.empty())
                 {
                     mpp[temp] += 1;
@@ -42,7 +40,6 @@ public:
             {
                 curr = getNum(i, f);
                 i--;
-                // cout<<temp<<" "<<curr<<endl;
                 mpp[temp] += curr;
                 curr = 1;
                 temp = "";
@@ -57,30 +54,19 @@ public:
                 }
                 
                 i++;
-                cout<<" call "<<endl;
                 
                 rgh = recur(i, f);
-                
-                cout<<" returned "<<rgh.size()<<endl;
-                
-                for(auto it : rgh)
-                {
-                    cout<<"r : "<<it.first<<" "<<it.second<<endl;
-                }
         
-                // cout<<"ccc "<<f[i]<endl;
                 if(f[i+1] >= '0' && f[i+1] <= '9')
                 {
                     i++;
                     curr = getNum(i, f);
-                    cout<<"curr "<<curr<<" "<<f[i]<<endl;
                     i--;
                 }
                 else curr=1;
                 
                 for(auto it : rgh)
                 {
-                    cout<<" it.first "<<it.first<<" "<<curr<<endl;
                     int d = it.second*curr;
                     if(mpp.count(it.first))
                     {

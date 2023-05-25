@@ -4,7 +4,7 @@ public:
     int chk=0;
     bool flag = false;
     
-void recur(int i, string &t, int sum)
+void recur(int i,const string &t, int sum)
 {
 	if (i >= t.size())
 	{

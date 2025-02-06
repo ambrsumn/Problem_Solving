@@ -18,9 +18,9 @@ public:
                 // cout<<nums[j]<<" "<<nums[k]<<" "<<total<<endl;  
                 if(total == 0)
                 {
-                    vector<int> temp = {nums[i], nums[j], nums[k]};
-                    sort(temp.begin(), temp.end()); 
-                    st.insert(temp);
+                    // vector<int> temp = {nums[i], nums[j], nums[k]};
+                    // sort(temp.begin(), temp.end()); 
+                    st.insert({nums[i], nums[j], nums[k]});
                     j++;
                     k--;
                 }

@@ -16,10 +16,10 @@ public:
             if(curr > mvol)
                 mvol = curr;
             
-            if(vec[j] <= vec[i])
+            if(vec[j] < vec[i])
                 j--;
             
-            else if(vec[i] < vec[j])
+            else if(vec[i] <= vec[j])
                 i++;
         }
         

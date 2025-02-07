@@ -1,18 +1,38 @@
 class Solution {
 public:
+    bool isSubsequence(string s, string t) 
+    {
 
-bool recur(int i, int j, string s, string t) {
+        if(s == "")return true;
+        queue<char> q1, q2;
 
-    if(i >= s.length() && j <= t.size())return true;
-    if(j >= t.length())return false;
-    // if(i<s.length()-1 && j>=t.length())return false;
+        for(auto it : s)q1.push(it);
+        for(auto it : t)q2.push(it);
 
-    if(s[i] == t[j])return recur(i+1, j+1, s, t);
-    else return recur(i, j+1, s, t);
-}
+        while(!q1.empty())
+        {
+            char search = q1.front();
+            
 
-    bool isSubsequence(string s, string t) {
+            while(!q2.empty())
+            {
+                if(q2.front() != search)
+                {
+                    
+                    q2.pop();
+                }
+                else
+                {
+                    q1.pop();
+                    q2.pop();
+                    break;
+                }
+            }
 
-        return recur(0, 0, s, t);
+            if(q2.empty() && !q1.empty())return false;
+        }
+
+        if(q1.empty() )return true;
+        return false;
     }
 };

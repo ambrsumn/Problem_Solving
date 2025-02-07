@@ -31,6 +31,7 @@ public:
                 if(diff[i] != diff[i+1] && diff[i] != diff[i-1])
                 {
                     ans = i;
+                    break;
                 }
             }
         }

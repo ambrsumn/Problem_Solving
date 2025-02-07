@@ -15,17 +15,13 @@ public:
                     curr.push_back(words[i]);
                     currLen += words[i].length();
                     i++;
-                    // cout << curr.back() << " ";
                 } else {
                     break;
                 }
             }
             i--;
-
-            cout << "INDEX " << i << endl;
             int totalSpace = maxWidth - currLen;
             int divisors = curr.size() - 1;
-            // cout << currLen << " " << totalSpace << " " << divisors;
 
             if (i != words.size()-1) {
                 if (curr.size() == 1) {
@@ -37,11 +33,9 @@ public:
 
                 else {
                     int k = 0;
-                    cout << endl << "Divisor ";
                     while (divisors > 0) {
                         int giveSpace =
                             ceil((float)totalSpace / (float)divisors);
-                        cout << giveSpace << " ";
                         totalSpace -= giveSpace;
                         divisors--;
 
@@ -64,9 +58,6 @@ public:
                 int pending = maxWidth - currLine.length();
                 while(pending--)currLine += ' '; 
             }
-
-            // cout << endl << currLen << endl;
-            cout << endl << currLine << endl;
             ans.push_back(currLine);
         }
 

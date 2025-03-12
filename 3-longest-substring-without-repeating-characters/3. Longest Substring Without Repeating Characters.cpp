@@ -10,12 +10,12 @@ public:
             if(mpp.find(s[j]) == mpp.end())
             {
                 ans = max(ans, (j-i+1));
-                cout<<j<<" "<<i<<" "<<ans<<endl;
+                // cout<<j<<" "<<i<<" "<<ans<<endl;
                 mpp[s[j]]++;
             }
             else
             {
-                cout<<"going in ";
+                // cout<<"going in ";
                 while(i<=j)
                 {
                     if(s[i] == s[j])
@@ -32,7 +32,7 @@ public:
                 }
                 mpp[s[j]]++;
 
-                cout<<i<<endl;
+                // cout<<i<<endl;
             }
 
             j++;

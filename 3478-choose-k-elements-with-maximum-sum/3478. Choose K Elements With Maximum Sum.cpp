@@ -21,7 +21,6 @@ public:
                     for(auto it : left)
                     {
                         pq.push(nums2[it]);
-                        // left.pop();
                         currentSum += nums2[it];
 
                         if(pq.size() > k)
@@ -48,17 +47,7 @@ public:
 
             }
 
-            // priority_queue<int, vector<int>, greater<int>> temp = pq;
-
             long long indexSum = 0;
-
-            // while(!temp.empty())
-            // {
-            //     int top = temp.top();
-            //     indexSum += top;
-
-            //     temp.pop();
-            // }
 
             ans[vec[i].second] = currentSum;
 

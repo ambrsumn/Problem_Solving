@@ -14,16 +14,10 @@ public:
             lineSweep[st] += val;
             lineSweep[ed+1] -= val;
         }
-        // cout<<k<<endl;
-        // for(auto it : lineSweep)cout<<it<<" ";
-        // cout<<endl;
 
         for(int i=0; i<nums.size(); i++)
         {
             if(i != 0) lineSweep[i] += lineSweep[i-1];
-
-            // cout<<nums[i]<<" "<<lineSweep[i]<<endl;
-
             if(nums[i] > lineSweep[i])return false;
         }
 
@@ -33,13 +27,11 @@ public:
     int minZeroArray(vector<int>& nums, vector<vector<int>>& q) {
 
         int ans = q.size()+1;
-
         int low = 0, high = q.size(), mid = 0;
-
+        
         while(low <= high)
         {
             mid = low + (high-low)/2;
-            // cout<<mid<<endl;
 
             if(isValid(nums, q, mid))
             {

@@ -1,0 +1,27 @@
+type Fn = (n: number, i: number) => any
+
+function filter(arr: number[], fn: Fn): number[] {
+
+    let transformedArr: number[] = [];
+    
+
+    for(let i=0; i<arr.length; i++)
+    {
+        let returnedVal:any = fn(arr[i], i);
+        // console.log(returnedVal);
+
+        if(typeof (returnedVal) === 'boolean')
+        {
+            if(returnedVal === true) transformedArr.push(arr[i]);
+        }
+        else if(typeof (returnedVal) === 'number')
+        {
+            if(returnedVal !== 0)
+            transformedArr.push(arr[i]);
+        }
+
+    }
+
+    return transformedArr;
+    
+};

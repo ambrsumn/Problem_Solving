@@ -1,0 +1,19 @@
+function createCounter(n: number): () => number {
+
+    let c : number = -1;
+    // console.log(c);
+
+    return function() {
+        // console.log(c)
+        c++;
+        return n+c;
+    }
+}
+
+
+/** 
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
+ */

@@ -12,18 +12,15 @@ function createCounter(init: number): Counter {
     return {
 
         increment(): number{
-            console.log(current);
             current++;
             return current;
         },
         decrement(): number{
-            console.log(current);
             current--;
             return current;
         }
 ,
         reset():number{
-            console.log(current);
             current = initial;
             return current;
         }

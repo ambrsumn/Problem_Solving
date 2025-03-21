@@ -1,33 +1,30 @@
 class Solution {
 public:
-    
+
     int dp[1001][1001];
-    string temp = "";
-    int recur(int i1, int i2, string &s1, string &s2)
+    int recur(int i, int j, string &text1, string &text2)
     {
-        if(i1<0 || i2<0)return 0;
-        
-        if(dp[i1][i2] != -1)return dp[i1][i2];
-        
-        int ans = 0;
-        
-        if(s1[i1] == s2[i2])
+        if(i < 0 || j < 0)return 0;
+
+        if(dp[i][j] != -1)return dp[i][j];
+
+        int curr = 0;
+
+        if(text1[i] == text2[j])
         {
-            ans = 1 + recur(i1-1, i2-1, s1, s2);
+            curr = 1 + recur(i-1, j-1, text1, text2);
         }
-        
-        else
-        ans = max(recur(i1-1, i2, s1, s2), recur(i1, i2-1, s1, s2));
-        
-        return dp[i1][i2] = ans;
+
+        else curr = max(recur(i-1, j, text1, text2), recur(i, j-1, text1, text2));
+
+        return dp[i][j] = curr;
     }
-    
-    int longestCommonSubsequence(string s1, string s2) 
-    {
-        memset(dp, -1, sizeof(dp));
+
+    int longestCommonSubsequence(string text1, string text2) {
         
-        int ans = recur(s1.size()-1, s2.size()-1, s1, s2);
-        cout<<temp<<endl;
-        return ans;
+        memset(dp, -1, sizeof(dp));
+        // vector<vector<int>> dp(1001, vector<int>(1001, -1));
+
+        return recur(text1.length()-1, text2.length()-1, text1, text2);
     }
 };

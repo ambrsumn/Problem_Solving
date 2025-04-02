@@ -17,7 +17,7 @@ public:
         return true;
     }
 
-    int recur(int i, string &temp1, string &temp2, string &s)
+    int recur(int i, string temp1, string temp2, string &s)
     {
         if(i >= s.length())
         {
@@ -45,6 +45,6 @@ public:
 
         string temp1 = "", temp2 = "";
 
-        return recur(0, temp1, temp2, s);
+        return recur(0, "", "", s);
     }
 };

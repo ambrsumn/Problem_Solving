@@ -3,15 +3,15 @@ public:
     int totalFruit(vector<int>& vec) {
 
         if(vec.size() <= 2)return vec.size();
-        set<int> st;
+        // set<int> st;
 
-        for(auto it : vec)st.insert(it);
+        // for(auto it : vec)st.insert(it);
 
-        if(vec.size() == st.size())return 2;
+        // if(vec.size() == st.size())return 2;
 
-        if(st.size() <= 2)return vec.size();
+        // if(st.size() <= 2)return vec.size();
 
-        st.clear();
+        // st.clear();
 
         vector<vector<int>> cal;
 
@@ -30,6 +30,8 @@ public:
             cal.push_back({vec[i], temp});
             i++;
         }
+
+        if(cal.size() <= 2)return vec.size();
 
         int ans = 0;
 

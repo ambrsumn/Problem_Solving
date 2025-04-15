@@ -3,12 +3,7 @@ public:
     int orangesRotting(vector<vector<int>>& grid) {
 
         int n = grid.size(), m = grid[0].size(), ans = 0, total=0, rotten=0;
-
         queue<pair<int,int>> q;
-        // vector<vector<int>> visited(n, vector<int>(m, -1));
-
-
-        // AT TIME 0
 
         for(int i=0; i<n; i++)
         {

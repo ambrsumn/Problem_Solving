@@ -36,8 +36,6 @@ public:
                         visited[i+1][j] = 1;
                     }
                 }
-
-                // cout<<q.size()<<endl;
             }
         }
 

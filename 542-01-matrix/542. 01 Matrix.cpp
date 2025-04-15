@@ -42,8 +42,6 @@ public:
         while (!q.empty()) {
             dis++;
             int currSize = q.size();
-            cout << dis << " " << currSize << endl;
-
             while (currSize--) {
                 int i = q.front().first;
                 int j = q.front().second;

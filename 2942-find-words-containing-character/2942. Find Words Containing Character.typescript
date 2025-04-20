@@ -1,0 +1,15 @@
+function findWordsContaining(words: string[], x: string): number[] {
+
+    let ans: number[] = [];
+    let i: number = 0;
+    for(const it in words)
+    {
+        let idx: number = words[it].indexOf(x);
+
+        if(idx !== -1)ans.push(i);
+        i++;
+    }
+
+    return ans;
+    
+};

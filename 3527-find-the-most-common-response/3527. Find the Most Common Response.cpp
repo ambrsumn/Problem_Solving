@@ -21,26 +21,14 @@ public:
                 {
                     maxi = mpp[itr];
                     ans = itr;
-                    cout<<maxi<<endl;
                 }
 
                 else if(mpp[itr] == maxi && ans > itr)
                 {
-                    // maxi = mpp[itr];
                     ans = itr;
-                    // cout<<maxi<<endl;
                 }
             }
         }
-
-        // for(auto it : mpp)
-        // {
-        //     if(it.second > maxi)
-        //     {
-        //         maxi = it.second;
-        //         ans = it.first;
-        //     }
-        // }
 
         return ans;
         

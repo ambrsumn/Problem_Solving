@@ -10,6 +10,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 |  |
 | ------- |
+| [0031-next-permutation](https://github.com/ambrsumn/Problem_Solving/tree/master/0031-next-permutation) |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/ambrsumn/Problem_Solving/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
 ## Hash Table
 |  |
@@ -19,4 +20,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [3418-count-pairs-that-form-a-complete-day-ii](https://github.com/ambrsumn/Problem_Solving/tree/master/3418-count-pairs-that-form-a-complete-day-ii) |
+## Two Pointers
+|  |
+| ------- |
+| [0031-next-permutation](https://github.com/ambrsumn/Problem_Solving/tree/master/0031-next-permutation) |
 <!---LeetCode Topics End-->

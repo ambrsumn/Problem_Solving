@@ -18,7 +18,6 @@ public:
             while(curr >= k && i<=j)
             {
                 total = j-i;
-                // cout<<i<<" "<<j<<" "<<total<<endl;
                 ans += total; 
 
                 curr /= nums[i];
@@ -29,7 +28,6 @@ public:
         }
 
         total = j-i;
-        // cout<<i<<" F "<<j<<" "<<total<<" "<<ans<<endl;
         ans += (total * (total+1))/2;
 
         return ans;

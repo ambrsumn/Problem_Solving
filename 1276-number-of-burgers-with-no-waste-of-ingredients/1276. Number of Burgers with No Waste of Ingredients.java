@@ -8,7 +8,7 @@ class Solution {
             ans.add(0);
             return ans;
         }
-        
+
         if(t <= c)return ans;
         if(t%2 != 0)return ans;
 
@@ -28,16 +28,16 @@ class Solution {
             return ans;
         }
 
-        while(c >= 1 && t >= 2)
+        while(c >= 1 && t >= 4)
         {
             small++;
-            t -= 2;
+            t -= 4;
             c--;
 
-            if(t == 4*c)
+            if(t == 2*c)
             {
-                ans.add(c);
                 ans.add(small);
+                ans.add(c);
                 return ans;
             }
         }

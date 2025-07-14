@@ -2,6 +2,7 @@ class Solution {
 public:
 
     vector<int> parent;
+    unordered_set<int> counter;
     vector<int> rank;
 
     int findUltimateParent(int i) {
@@ -31,8 +32,10 @@ public:
     }
 
     int countComponents() {
-        unordered_set<int> counter;
-        for (int i = 0; i < parent.size(); ++i) {
+        counter.clear();
+
+        for (int i = 0; i < parent.size(); ++i) 
+        {
             counter.insert(findUltimateParent(i));
         }
         return counter.size();

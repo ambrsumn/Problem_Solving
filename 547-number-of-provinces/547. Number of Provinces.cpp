@@ -1,36 +1,60 @@
 class Solution {
 public:
-    
-    void dfs(int i, int &n, vector<vector<int>> &vec, vector<bool> &vis)
+
+    vector<int> parent;
+    vector<int> rankDSU;
+
+    int findUltimateParent(int u)
     {
-        if(vis[i])
-            return;
-        
-        vis[i] = true;
-        
-        for(int j=0; j<n; j++)
+        if(parent[u] == u)return u;
+
+        return parent[u] = findUltimateParent(parent[u]);
+    }
+
+    void createDsu(int u, int v)
+    {
+        int parentU = findUltimateParent(u);
+        int parentV = findUltimateParent(v);
+
+        if(parentU == parentV)return;
+
+
+        if(rankDSU[parentU] > rankDSU[parentV])
         {
-            if(vec[i][j] == 1)
-            {
-                dfs(j, n, vec, vis);
-            }
+            parent[parentV] = parentU;
+        }
+        else if(rankDSU[parentU] < rankDSU[parentV])
+        {
+            parent[parentU] = parentV;
+        }
+        else
+        {
+            parent[parentV] = parentU;
+            rankDSU[parentU]++;
         }
     }
-    
-    int findCircleNum(vector<vector<int>>& vec) 
-    {
-        int n = vec.size(), count=0;
-        vector<bool> vis(n, false);
-        
+
+    int findCircleNum(vector<vector<int>>& g) {
+
+        int n = g.size();
+
         for(int i=0; i<n; i++)
         {
-            if(!vis[i])
-            {
-                count++;
-                dfs(i, n, vec, vis);
-            }
+            parent.push_back(i);
+            rankDSU.push_back(1);
         }
-        
-        return count;
+
+        for(int i=0; i<n; i++)
+        {
+            for(int j=i+1; j<n; j++)if(g[i][j] == 1)createDsu(i, j);
+        }
+
+        set<int> st;
+
+        for(int i=0; i<n; i++)if(parent[i] != i)int d = findUltimateParent(i);
+
+        for(auto it : parent)st.insert(it);
+
+        return st.size();
     }
 };

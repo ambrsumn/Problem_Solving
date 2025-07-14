@@ -1,17 +1,8 @@
-class DSU {
-private:
+class Solution {
+public:
+
     vector<int> parent;
     vector<int> rank;
-
-public:
-    DSU(int n) {
-        parent.resize(n);
-        rank.resize(n);
-        for (int i = 0; i < n; ++i) {
-            parent[i] = i;
-            rank[i] = 0;
-        }
-    }
 
     int findUltimateParent(int i) {
         if (parent[i] == i) return i;
@@ -46,11 +37,7 @@ public:
         }
         return counter.size();
     }
-};
 
-
-class Solution {
-public:
     int minCost(int n, vector<vector<int>>& edges, int k) {
 
         int low = 0, high = -1;
@@ -62,11 +49,17 @@ public:
         {
             int mid = low + (high-low)/2;
 
-            DSU newDsu = DSU(n);
+            parent.resize(n);
+            rank.resize(n);
+            for (int i = 0; i < n; ++i) 
+            {
+                parent[i] = i;
+                rank[i] = 0;
+            }
 
-            for(auto it : edges)if(it[2] <= mid)newDsu.createDSU(it[0], it[1]);
+            for(auto it : edges)if(it[2] <= mid)createDSU(it[0], it[1]);
 
-            int cc = newDsu.countComponents();
+            int cc = countComponents();
 
             if(cc <= k)
             {

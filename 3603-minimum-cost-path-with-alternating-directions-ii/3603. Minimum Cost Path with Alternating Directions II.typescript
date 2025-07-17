@@ -1,0 +1,25 @@
+let mpp = new Map();
+
+function recur(i: number, j: number, t: number, wc: number[][])
+{
+    if(i === wc.length-1 && j === wc[0].length-1)return (i+1)*(j+1);
+    if(i >= wc.length || j >= wc[0].length)return Number.MAX_SAFE_INTEGER;
+    if(i < 0 || j < 0)return Number.MAX_SAFE_INTEGER;
+
+    let key: string = `${i}.${j}.${t%2}`;
+    if(mpp.has(key))return mpp.get(key);
+
+    let ans: number;
+
+    if(t%2 !== 0)ans = (i+1)*(j+1) + Math.min(recur(i+1, j, t+1, wc), recur(i, j+1, t+1, wc)); 
+    else ans = wc[i][j] + recur(i, j, t+1, wc);
+
+    mpp.set(key, ans);
+    return ans;
+}
+
+function minCost(m: number, n: number, wc: number[][]): number {
+
+    mpp.clear();
+    return recur(0, 0, 1, wc);
+};

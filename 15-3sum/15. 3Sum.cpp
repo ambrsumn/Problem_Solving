@@ -36,11 +36,7 @@ public:
         }
 
         vector<vector<int>> ansVector;
-
-        for(auto it : ans)
-        {
-            ansVector.push_back(it);
-        }
+        for(auto it : ans)ansVector.push_back(it);
         return ansVector;
     }
 };

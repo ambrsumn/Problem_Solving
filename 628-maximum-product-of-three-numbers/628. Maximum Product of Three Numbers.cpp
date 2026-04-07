@@ -24,8 +24,6 @@ public:
             else pos++;
         }
 
-        for(auto it : nums)cout<<it<<" ";
-
         return nums[n-1] * max((nums[0]*nums[1]), (nums[n-2]*nums[n-3]));
     }
 };

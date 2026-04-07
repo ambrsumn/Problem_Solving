@@ -4,7 +4,7 @@ public:
 
         int n = nums.size();
         int ans = 0;
-        int minDiff = INT_MAX;
+        int closest = INT_MAX;
 
         for(int i=0; i<n-2; i++)
         {
@@ -12,12 +12,12 @@ public:
             {
                 for(int k=j+1; k<n; k++)
                 {
-                    int currSum = nums[i]+nums[j]+nums[k];
+                    int sum = nums[i]+nums[j]+nums[k];
 
-                    if(abs(currSum - target) <= minDiff)
+                    if( abs(sum - target) < closest )
                     {
-                        minDiff = abs(currSum - target);
-                        ans = currSum;
+                        ans = sum;
+                        closest = abs(sum - target);
                     }
                 }
             }

@@ -1,26 +1,20 @@
 class Solution {
 public:
-
     string customSortString(string order, string s) {
 
-        string ans = "";
+        map<char, int> mpp;
 
-        for(auto it : order)
-        {
-            for(auto itt : s)
-            {
-                if(it == itt)ans.push_back(it);
-            }
+        for (int i = 0; i < order.size(); i++) {
+            mpp[order[i]] = i + 1;
         }
 
-        for(auto it : s)
-        {
-            auto finder = order.find(it);
+        sort(s.begin(), s.end(), [&](char a, char b) {
+            if (mpp[a] < mpp[b])
+                return true;
 
-            if(finder == string::npos)ans.push_back(it);
-        }
-        
+            return false;
+        });
 
-        return ans;
+        return s;
     }
 };

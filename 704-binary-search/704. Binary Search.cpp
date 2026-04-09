@@ -9,9 +9,9 @@ public:
             int mid = low + (high - low) / 2;
             if (vec[mid] == target)return mid;
 
-            if (vec[mid] > target)high--;
+            if (vec[mid] > target)high = mid-1;
 
-            else low++;
+            else low = mid+1;
         }
 
         return -1;

@@ -14,7 +14,7 @@ public:
             if(nums[mid]==target)
                 return mid;
             
-            if(nums[low] <= nums[mid]) // left half sorted
+            if(nums[low] <= nums[mid])
             {
                 if(target < nums[mid] && target >= nums[low])
                 {

@@ -10,7 +10,6 @@ class Solution {
 
         while (j < n) {
             if (j - i + 1 == k) {
-                IO.println(j + " " + i + " ---- ");
 
                 for (int l = i; l <= j; l++)st.add(nums[l]);
 
@@ -21,7 +20,6 @@ class Solution {
                     IO.println(it + " " + mpp.getOrDefault(it, 0));
                 }
                 st.clear();
-                // mpp.put(nums[i], mpp.get(nums[i])-1);
                 i++;
             }
 
@@ -29,7 +27,6 @@ class Solution {
         }
 
         for (int it : mpp.keySet()) {
-            // IO.println(it + " " + mpp.get(it));
             if (mpp.get(it) == 1)
                 ans = Math.max(ans, it);
         }

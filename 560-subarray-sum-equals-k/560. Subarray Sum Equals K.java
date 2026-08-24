@@ -16,8 +16,6 @@ class Solution {
 
         }
 
-        // IO.println(arr.size() + " " + ans);
-
         if (ans == Integer.MAX_VALUE)
             return -1;
 
@@ -54,7 +52,6 @@ class Solution {
 
             if (mpp.containsKey(rem)) {
                 int currAns = binarySearch(mpp.get(rem), i);
-                IO.println(rem + " " + i + " " + ans);
                 if(currAns != -1)ans += currAns;
             }
         }

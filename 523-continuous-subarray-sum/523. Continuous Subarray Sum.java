@@ -15,14 +15,7 @@ class Solution {
                 curr += k * x;
             }
 
-            if (mpp.containsKey(curr)) {
-                int idx = mpp.get(curr);
-                int len = (i - idx);
-
-                IO.println(len + " " + curr + " " + idx);
-
-                if(len >= 2)return true;
-            }
+            if (mpp.containsKey(curr) && (i - mpp.get(curr) >= 2))return true;
 
             if (!mpp.containsKey(curr))
                 mpp.put(curr, i);

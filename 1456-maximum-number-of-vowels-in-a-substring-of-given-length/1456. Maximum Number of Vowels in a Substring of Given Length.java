@@ -28,7 +28,6 @@ class Solution {
         while (low <= high) {
             int mid = low + (high - low) / 2;
 
-            // IO.print(mid + " " + nums.get(mid) + " " + target);
             if (nums.get(mid) <= target) {
                 ans = mid;
                 low = mid + 1;

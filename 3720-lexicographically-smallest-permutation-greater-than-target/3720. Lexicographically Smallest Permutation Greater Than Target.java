@@ -2,32 +2,9 @@ class Solution {
 
 public Pair<Integer, Integer> bs(ArrayList<Character> vec, char target) {
     int i = 0, j = vec.size() - 1;
-    int idx = -1;
-
-    // Find any occurrence of target
-    while (i <= j) {
-        int mid = i + (j - i) / 2;
-
-        if (vec.get(mid) == target) {
-            idx = mid;
-
-            // Move backward to first occurrence
-            while (idx - 1 >= 0 && vec.get(idx - 1) == target)
-                idx--;
-
-            break;
-        } else if (vec.get(mid) < target) {
-            i = mid + 1;
-        } else {
-            j = mid - 1;
-        }
-    }
+    int idx2 = -1;
 
     // Find first element >= target
-    int idx2 = -1;
-    i = 0;
-    j = vec.size() - 1;
-
     while (i <= j) {
         int mid = i + (j - i) / 2;
 
@@ -39,15 +16,30 @@ public Pair<Integer, Integer> bs(ArrayList<Character> vec, char target) {
         }
     }
 
-    // If it is equal to target, move forward
-    // to the first element > target.
-    if (idx2 != -1 && vec.get(idx2) == target) {
+    if (idx2 == -1)
+        return new Pair<>(-1, -1);
+
+    // If first >= target is target,
+    // find first occurrence by moving backward.
+    int idx = idx2;
+
+    if (vec.get(idx) == target) {
+        while (idx - 1 >= 0 && vec.get(idx - 1) == target)
+            idx--;
+    } else {
+        // No exact target exists.
+        idx = -1;
+    }
+
+    // idx2 currently means first >= target.
+    // For recursion, we need first > target.
+    if (vec.get(idx2) == target) {
         while (idx2 < vec.size() && vec.get(idx2) == target)
             idx2++;
-        
-        if (idx2 == vec.size())
-            idx2 = -1;
     }
+
+    if (idx2 == vec.size())
+        idx2 = -1;
 
     return new Pair<>(idx, idx2);
 }

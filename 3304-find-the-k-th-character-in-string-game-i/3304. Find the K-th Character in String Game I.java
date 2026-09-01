@@ -2,7 +2,6 @@ class Solution {
 
     public char recur(StringBuilder s, int k)
     {
-        IO.println(s);
 
         if(s.length() > k)return s.charAt(k-1);
 

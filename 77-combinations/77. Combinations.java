@@ -1,7 +1,7 @@
 class Solution {
     int total = 0;
     int max = 0;
-    Set<List<Integer>> st;
+    List<List<Integer>> st = new ArrayList<>();
 
     public void recur(int i, List<Integer> prev) {
 
@@ -28,9 +28,9 @@ class Solution {
         total = n;
         max = k;
         List<Integer> curr = new ArrayList<>();
-        st = new HashSet<>();
+        // st = new HashSet<>();
 
         recur(1, curr);
-        return new ArrayList<>(st);
+        return st;
     }
 }

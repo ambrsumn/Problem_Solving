@@ -7,11 +7,6 @@ class Solution {
         if (i >= nums.length)
             return;
 
-        // IO.println(i + " prev " + prev);
-
-        // recur(i + 1, nums, prev);
-        // recur(i + 1, nums, curr);
-
         for (int k = i; k < nums.length; k++) {
             //pick
             prev.add(nums[k]);
@@ -27,8 +22,6 @@ class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         st.add(new ArrayList<>());
         recur(0, nums);
-
-        IO.println(st);
         List<List<Integer>> ans = new ArrayList<>(st);
         return ans;
     }

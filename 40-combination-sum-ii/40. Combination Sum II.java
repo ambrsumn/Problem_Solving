@@ -12,18 +12,21 @@ class Solution {
 
         int n = c.length;
 
-        // pick
-        target -= c[i];
-        curr.add(c[i]);
-        recur(i + 1, c, target, curr);
+        while (i < n) {
+            // pick
+            target -= c[i];
+            curr.add(c[i]);
+            recur(i + 1, c, target, curr);
 
-        // not pick
-        target += c[i];
-        curr.remove(curr.size() - 1);
-        while (i < n - 1 && c[i + 1] == c[i])
+            // not pick
+            target += c[i];
+            curr.remove(curr.size() - 1);
+            while (i < n - 1 && c[i + 1] == c[i])
+                i++;
+
+            // recur(i + 1, c, target, curr);
             i++;
-
-        recur(i+1, c, target, curr);
+        }
 
     }
 

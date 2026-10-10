@@ -28,7 +28,6 @@ class Solution {
         });
 
         List<List<Integer>> mergedList = new ArrayList<>();
-        // boolean lastMerged = false;
 
         for(int i=1; i<list.size(); i++)
         {
@@ -36,21 +35,15 @@ class Solution {
             {
                 list.get(i).set(0, list.get(i-1).get(0));
                 list.get(i).set(1, Math.max(list.get(i-1).get(1), list.get(i).get(1)));
-                // lastMerged = true;
             }
-            else 
-            {
-                mergedList.add(list.get(i-1));
-                // lastMerged = false;
-            }
+            else mergedList.add(list.get(i-1));
         }
-        // if(lastMerged == true)
-        // {
-            mergedList.add(list.get(list.size()-1));
-        // }
 
+        mergedList.add(list.get(list.size()-1));
+        
         int[][] ans = new int[mergedList.size()][2];
         int i=0;
+
         for(List<Integer> it : mergedList)
         {
             ans[i][0] = it.get(0);
@@ -59,7 +52,6 @@ class Solution {
             i++;
         }
 
-        // IO.println(mergedList);
         return ans;
     }
 }

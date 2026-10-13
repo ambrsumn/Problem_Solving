@@ -4,7 +4,7 @@ class Solution {
         int[] ans = new int[2];
         ans[0] = -1;
         ans[1] = -1;
-        
+
         int pro = Integer.MIN_VALUE;
 
         List<Pair<Integer, Integer>> sorted = new ArrayList<>();
@@ -14,8 +14,6 @@ class Solution {
         Collections.sort(sorted, (a,b)->{
             return Integer.compare(a.getKey(), b.getKey());
         });
-
-        IO.println(sorted);
 
         int i=0, j=sorted.size();
 

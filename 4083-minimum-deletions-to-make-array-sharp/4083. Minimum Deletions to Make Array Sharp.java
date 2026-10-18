@@ -3,14 +3,8 @@ class Solution {
 
         Stack<Integer> st = new Stack<>();
 
-        for(int it : nums)
-        {
-            if(st.isEmpty() || st.peek() != it)st.add(it);
-
-            // IO.println(it + " " + st.size());
-        }
+        for(int it : nums)if(st.isEmpty() || st.peek() != it)st.add(it);
 
         return nums.length - st.size();
-        
     }
 }

@@ -4,7 +4,6 @@ class Solution {
         int n = nums.length;
         Arrays.sort(nums);
         int[] indegree = new int[n];
-        int ans = 0;
         int[] parent = new int[n];
         List<Integer> last = new ArrayList<>();
         List<Integer> before = new ArrayList<>();
@@ -37,7 +36,6 @@ class Solution {
             // //IO.println("itr " + last);
             before = new ArrayList<>(last);
             last.clear();
-            ans++;
             int currSize = zeroDegrees.size();
 
             while (currSize > 0) {
@@ -55,11 +53,6 @@ class Solution {
                 }
             }
         }
-
-        //IO.println(ans);
-        //IO.println(before);
-        // for (int i = 0; i < n; i++)
-        //IO.println(i + " -> " + parent[i]);
 
         List<Integer> answer = new ArrayList<>();
         int start = before.get(0);

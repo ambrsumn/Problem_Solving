@@ -7,6 +7,7 @@ class Solution {
         int[] parent = new int[n];
         List<Integer> last = new ArrayList<>();
         List<Integer> before = new ArrayList<>();
+        List<Integer> answer = new ArrayList<>();
 
         for (int i = 0; i < n; i++)
             parent[i] = -1;
@@ -33,7 +34,6 @@ class Solution {
         }
 
         while (!zeroDegrees.isEmpty()) {
-            // //IO.println("itr " + last);
             before = new ArrayList<>(last);
             last.clear();
             int currSize = zeroDegrees.size();
@@ -54,7 +54,6 @@ class Solution {
             }
         }
 
-        List<Integer> answer = new ArrayList<>();
         int start = before.get(0);
 
         while (start != -1) {

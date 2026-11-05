@@ -20,17 +20,14 @@ class Solution {
     public int recur(TreeNode root, boolean allowed) {
         if (root == null)
         {
-            // IO.println("-----");
             return 0;
         }
 
         if(root.left == null && root.right == null)
         {
-            // IO.println(root.val + " " + allowed);
             if(allowed)return root.val;
             return 0;
         }
-        // IO.println("entry " + root.val + " " + allowed);
 
         Pair<TreeNode, Boolean> key = new Pair<>(root, allowed);
 
@@ -43,8 +40,6 @@ class Solution {
             pick = root.val + recur(root.left, !allowed) + recur(root.right, !allowed);
 
         np = recur(root.left, true) + recur(root.right, true);
-
-        // IO.println(root.val + " - " + allowed + " " + pick + " " + np);
 
         dp.put(key, Math.max(pick, np));
 

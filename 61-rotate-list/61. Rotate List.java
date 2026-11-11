@@ -11,30 +11,33 @@
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
 
+        ListNode temp = head;
         List<Integer> list = new ArrayList<>();
 
-        ListNode temp = head;
-
-        while(temp != null)
-        {
-            list.add(temp.val);
+        while (temp != null) {
+            list.add(-1);
             temp = temp.next;
         }
 
-        List<Integer> rotatedList = new ArrayList<>(list);
+        int i=0;
+        temp = head;
 
-        for(int i=0; i<list.size(); i++)rotatedList.set((i+k)%list.size(), list.get(i));
+        while (temp != null) {
+
+            int newPos = (i+k)%list.size();
+            list.set(newPos, temp.val);
+            temp = temp.next;
+            i++;
+        }
 
         temp = head;
-        int i=0;
-
-        while(temp != null)
-        {
-            temp.val = rotatedList.get(i);
+        i=0;
+        while (temp != null) {
+            temp.val = list.get(i);
             i++;
             temp = temp.next;
         }
-        
+
         return head;
     }
 }

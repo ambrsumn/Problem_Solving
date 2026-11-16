@@ -31,8 +31,6 @@ class Solution {
 
         Collection<Character> val = mpp.values();
         Set<Character> st = new HashSet<>(val);
-
-        IO.println(mpp);
         return str.toString().equals(pattern) && val.size() == st.size();
     }
 }

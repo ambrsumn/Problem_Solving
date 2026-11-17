@@ -14,6 +14,7 @@ class Solution {
         for(int jump=1; jump<=maxJumps; jump++)
         {
             isPossible = isPossible || recur(i+jump, nums, dp);
+            if(isPossible)break;
         }
 
         if(isPossible)dp[i] = 1;

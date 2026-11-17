@@ -37,10 +37,12 @@ class Solution {
 
             for(int i=0; i<indexes.size()-1; i++)
             {
-                int nextGreater = upperBound(indexes.subList(i, indexes.size()), indexes.get(i));
-                if(nextGreater == -1)continue;
+                for(int j=i+1; j<indexes.size(); j++)
+                {
+                    if(indexes.get(j)-indexes.get(i) > kk)break;
 
-                if(Math.abs(nextGreater - indexes.get(i)) <= kk)return true;
+                    else return true;
+                }
             }
         }
 
